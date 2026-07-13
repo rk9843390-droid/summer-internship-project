@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program_20</title>
+    <script src="jquery-4.0.0.min.js"></script>
+    <style>
+        .cls{
+            height: 300px;
+            width: 300px;
+            background-color: red;
+        }
+        .newcls{
+            height: 200px;
+            width: 200px;
+            background-color: aqua;
+            transform: scale();
+        }
+    </style>
+</head>
+<body>
+    <div class="cls"></div>
+    <button id="s">Start chains of method</button>
+    <button id="ab">add border</button>
+    <button id="ac">Add class</button>
+    <button id="rc">Remove class</button>
+</body>
+<script>
+    $(document).ready(function(){
+        $('#s').click(function(){
+            $('.cls').hide(2000).show(2000).slideDown(5000);
+        })
+        $('#ab').click(function(){
+            $('.cls').css({'border':"10px solid blue"});
+        })
+        $('#ac').click(function(){
+            $('.cls').addClass('newcls');
+        })
+        $('#rc').click(function(){
+            $('.cls').removeClass('newcls');
+        })
+        
+    })
+
+</script>
+</html>

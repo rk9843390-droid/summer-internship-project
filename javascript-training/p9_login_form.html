@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Page</title>
+</head>
+
+<body style="background-color: rgb(225, 225, 225); "> 
+    <form onsubmit="return validate(event)">
+        <table cellpadding="10">
+            <tr>
+                <td>Username</td>
+                <td><input type="text" id="n1" placeholder="Enter Username"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" id="n2" placeholder="Enter Password"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit" class="btn"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+<script>
+    function validate(event) {
+        // Prevent the page from automatically refreshing on submit
+        event.preventDefault(); 
+
+        let n1 = document.getElementById('n1').value.trim();
+        let n2 = document.getElementById('n2').value.trim();
+
+        if (n1 == '') {
+            alert("Enter the username");
+        } 
+        else if (n2 == '') {
+            alert("Enter the password");
+        } 
+        else {
+            alert("Success");
+        }
+    }
+</script>
+</html>

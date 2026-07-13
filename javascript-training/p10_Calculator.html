@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <table border="2">
+        <tr>
+            <td colspan="4" rowspan="1"> <input type="text" id="txt"></td>
+        </tr>
+        <tr>
+            <td><button onclick="number(1)">1</button></td>
+            <td><button onclick="number(2)">2</button></td>
+            <td><button onclick="number(3)">3</button></td>
+            <td><button onclick="appendOperator">+</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="number(4)">4</button></td>
+            <td><button onclick="number(5)">5</button></td>
+            <td><button onclick="number(6)">6</button></td>
+            <td><button onclick="appendOperator">-</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="number(7)">7</button></td>
+            <td><button onclick="number(8)">8</button></td>
+            <td><button onclick="number(9)">9</button></td>
+            <td><button onclick="appendOperator">x</button></td>
+        </tr>
+        <tr>
+            <td><button>C</button></td>
+            <td><button>AC</button></td>
+            <td><button onclick="number(0)">0</button></td>
+            <td><button onclick="appendOperator">/</button></td>
+            
+        </tr>
+    </table>
+</body>
+<script>
+    function number(n){
+        //alert("pressed 1")
+        document.getElementById()
+    }
+    function appendOperator(operator) {
+        // Prevent two operators in a row
+        if (/[+\-*/]$/.test(currentInput)) return;
+        if (currentInput === '') return; // Don't start with operator
+        currentInput += operator;
+        updateDisplay();
+    }
+</script>
+</html>

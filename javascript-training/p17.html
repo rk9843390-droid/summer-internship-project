@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program_17</title>
+    <script src="jquery-4.0.0.min.js"></script>
+    <style>
+        .cls{
+            height: 300px;
+            width: 300px;
+            background-color: red;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="cls"></div>
+    <button id="ani">animate</button>
+    <button id="st">Stop</button>
+</body>
+<script>
+    $(document).ready(function(){
+        $('#ani').click(function(){
+            $('.cls').animate({left:'200px'}, 2000);
+        })
+        $('#st').click(function(){
+            $('.cls').stop();
+        })
+        
+    })
+</script>
+</html>

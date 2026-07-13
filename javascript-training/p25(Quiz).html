@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming & Tech Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(225, 225, 225);
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 650px;
+            margin: 20px auto;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .question-block {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .question-text {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #222;
+        }
+        .options-label {
+            display: block;
+            margin: 8px 0;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        .options-label:hover {
+            background-color: #f0f0f0;
+        }
+        .btn-submit {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            margin-top: 15px;
+            transition: background 0.2s;
+        }
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+        #resultDisplay {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e2f0d9;
+            border-left: 5px solid #385723;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .correct-ans {
+            background-color: #d4edda !important;
+            color: #155724;
+        }
+        .wrong-ans {
+            background-color: #f8d7da !important;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Tech Knowledge Quiz</h1>
+        
+        <form id="quizForm" onsubmit="calculateScore(event)">
+            
+            <!-- Question 1 -->
+            <div class="question-block" id="q1-block">
+                <div class="question-text">1. Which language is primarily used for structuring web pages?</div>
+                <label class="options-label"><input type="radio" name="q1" value="A"> Python</label>
+                <label class="options-label"><input type="radio" name="q1" value="B"> HTML</label>
+                <label class="options-label"><input type="radio" name="q1" value="C"> Java</label>
+                <label class="options-label"><input type="radio" name="q1" value="D"> C++</label>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-block" id="q2-block">
+                <div class="question-text">2. Which array method adds an element to the end of an array in JavaScript?</div>
+                <label class="options-label"><input type="radio" name="q2" value="A"> pop()</label>
+                <label class="options-label"><input type="radio" name="q2" value="B"> shift()</label>
+                <label class="options-label"><input type="radio" name="q2" value="C"> push()</label>
+                <label class="options-label"><input type="radio" name="q2" value="D"> unshift()</label>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question-block" id="q3-block">
+                <div class="question-text">3. What extension is used to save a Jupyter Notebook file?</div>
+                <label class="options-label"><input type="radio" name="q3" value="A"> .py</label>
+                <label class="options-label"><input type="radio" name="q3" value="B"> .ipynb</label>
+                <label class="options-label"><input type="radio" name="q3" value="C"> .pkl</label>
+                <label class="options-label"><input type="radio" name="q3" value="D"> .json</label>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question-block" id="q4-block">
+                <div class="question-text">4. In Python, which file extension is commonly used for saved (serialized) models?</div>
+                <label class="options-label"><input type="radio" name="q4" value="A"> .pkl</label>
+                <label class="options-label"><input type="radio" name="q4" value="B"> .txt</label>
+                <label class="options-label"><input type="radio" name="q4" value="C"> .exe</label>
+                <label class="options-label"><input type="radio" name="q4" value="D"> .png</label>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question-block" id="q5-block">
+                <div class="question-text">5. Which of the following is NOT a fundamental feature of OOP?</div>
+                <label class="options-label"><input type="radio" name="q5" value="A"> Inheritance</label>
+                <label class="options-label"><input type="radio" name="q5" value="B"> Compilation</label>
+                <label class="options-label"><input type="radio" name="q5" value="C"> Polymorphism</label>
+                <label class="options-label"><input type="radio" name="q5" value="D"> Encapsulation</label>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question-block" id="q6-block">
+                <div class="question-text">6. How do you select an element with ID "txt" using jQuery?</div>
+                <label class="options-label"><input type="radio" name="q6" value="A"> $(".txt")</label>
+                <label class="options-label"><input type="radio" name="q6" value="B"> $("txt")</label>
+                <label class="options-label"><input type="radio" name="q6" value="C"> $("#txt")</label>
+                <label class="options-label"><input type="radio" name="q6" value="D"> document.id("txt")</label>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question-block" id="q7-block">
+                <div class="question-text">7. Which symbol represents the strict equality operator in JavaScript?</div>
+                <label class="options-label"><input type="radio" name="q7" value="A"> =</label>
+                <label class="options-label"><input type="radio" name="q7" value="B"> ==</label>
+                <label class="options-label"><input type="radio" name="q7" value="C"> ===</label>
+                <label class="options-label"><input type="radio" name="q7" value="D"> =></label>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question-block" id="q8-block">
+                <div class="question-text">8. What does Git track?</div>
+                <label class="options-label"><input type="radio" name="q8" value="A"> Changes in files</label>
+                <label class="options-label"><input type="radio" name="q8" value="B"> Network bandwidth</label>
+                <label class="options-label"><input type="radio" name="q8" value="C"> System RAM usages</label>
+                <label class="options-label"><input type="radio" name="q8" value="D"> Database queries</label>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question-block" id="q9-block">
+                <div class="question-text">9. Which keyword is used to define a function in Python?</div>
+                <label class="options-label"><input type="radio" name="q9" value="A"> function</label>
+                <label class="options-label"><input type="radio" name="q9" value="B"> fun</label>
+                <label class="options-label"><input type="radio" name="q9" value="C"> define</label>
+                <label class="options-label"><input type="radio" name="q9" value="D"> def</label>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="question-block" id="q1-block">
+                <div class="question-text">10. Where does JavaScript code execute by default in web development?</div>
+                <label class="options-label"><input type="radio" name="q10" value="A"> Database Server</label>
+                <label class="options-label"><input type="radio" name="q10" value="B"> Cloud Server</label>
+                <label class="options-label"><input type="radio" name="q10" value="C"> The User's Web Browser</label>
+                <label class="options-label"><input type="radio" name="q10" value="D"> Git Repository</label>
+            </div>
+
+            <button type="submit" class="btn-submit">Submit Quiz</button>
+        </form>
+
+        <!-- Dynamic Results Output -->
+        <div id="resultDisplay"></div>
+    </div>
+
+<script>
+    function calculateScore(event) {
+        event.preventDefault(); // Stop page from reloading
+
+        // Correct Answers mapping key mapping
+        const correctAnswers = {
+            q1: "B", q2: "C", q3: "B", q4: "A", q5: "B",
+            q6: "C", q7: "C", q8: "A", q9: "D", q10: "C"
+        };
+
+        let score = 0;
+        const totalQuestions = 10;
+        const form = document.getElementById('quizForm');
+
+        // Loop through each question to check selected radio input value
+        for (let i = 1; i <= totalQuestions; i++) {
+            let questionName = 'q' + i;
+            let selectedOption = form.elements[questionName].value;
+
+            // Find parent block to highlight visually later
+            let block = form.elements[questionName][0].closest('.question-block');
+
+            if (selectedOption === correctAnswers[questionName]) {
+                score++;
+                block.className = "question-block correct-ans"; // Highlight green
+            } else {
+                block.className = "question-block wrong-ans"; // Highlight red
+            }
+        }
+
+        // Output calculation scoreboard
+        let resultDiv = document.getElementById('resultDisplay');
+        resultDiv.style.display = "block";
+        resultDiv.innerHTML = "You scored " + score + " out of " + totalQuestions + "! (" + ((score/totalQuestions)*100) + "%)";
+        
+        // Scroll smoothly down to view your final scoreboard
+        resultDiv.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+</body>
+</html>

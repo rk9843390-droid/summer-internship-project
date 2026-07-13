@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program_23</title>
+    <script src="jquery-4.0.0.min.js"></script>
+    <style>
+        .tictac{
+            margin: auto;
+        }
+        .col{
+            height: 50px;
+            width: 50px;
+            border: 2px solid #000;
+            font-size: 24px;
+            text-align: center;
+            padding: 10px;
+
+        }
+        .row{
+            display: flex;
+        }
+    </style>
+</head>
+<body><div class="tictac">
+    <h2>Tic Tac Toe</h2>
+    <h4>Turn : <span id="turn">X</span>
+    </h4>
+    <div class="row">
+        <div onclick="playerclick(this)" id="0" class="col"></div>
+        <div onclick="playerclick(this)" id="1" class="col"></div>
+        <div onclick="playerclick(this)" id="2" class="col"></div>
+    </div>
+    <div class="row">
+        <div onclick="playerclick(this)" id="3" class="col"></div>
+        <div onclick="playerclick(this)" id="4" class="col"></div>
+        <div onclick="playerclick(this)" id="5" class="col"></div>
+    </div>
+    <div class="row">
+        <div onclick="playerclick(this)" id="6" class="col"></div>
+        <div onclick="playerclick(this)" id="7" class="col"></div>
+        <div onclick="playerclick(this)" id="8" class="col"></div>
+    </div>
+</body>
+<script>
+    var current_player = "X";
+    var gamedata = Array(null,null,null,null,null,null,null,null,null);
+    function playerclick(el){
+        //console.log(el.id);
+        current_id = el.id;
+        if(gamedata[current_id]!= null){return}
+        gamedata[current_id]=current_player;
+        console.log(gamedata);
+        $(el).html(current_player);
+        checkwinner();
+        current_player=current_player=='X'?'O':'X';
+        $('#turn').text(current_player);
+    }
+    function checkwinner(){
+       
+        if((gamedata[0]==gamedata[1] && gamedata[1]==gamedata[2] && gamedata[0]!=null||
+            gamedata[3]==gamedata[4] && gamedata[4]==gamedata[5] && gamedata[3]!=null||
+            gamedata[6]==gamedata[7] && gamedata[7]==gamedata[8] && gamedata[6]!=null||
+            gamedata[0]==gamedata[3] && gamedata[3]==gamedata[6] && gamedata[0]!=null||
+            gamedata[1]==gamedata[4] && gamedata[4]==gamedata[7] && gamedata[1]!=null||
+            gamedata[2]==gamedata[5] && gamedata[5]==gamedata[8] && gamedata[2]!=null||
+            gamedata[0]==gamedata[4] && gamedata[4]==gamedata[8] && gamedata[0]!=null||
+            gamedata[2]==gamedata[4] && gamedata[4]==gamedata[6] && gamedata[2]!=null
+
+        )){
+            document.write(current_player+" wins");
+        }
+        return;
+    }
+    function checkdraw(){
+        gamedata.forEach(function(el){
+            if(el==null)
+            {
+                draw=0;
+                return false;
+            }
+        });
+        if(draw){
+            document.write("Draw");
+        }
+    }
+    
+</script>
+</html>

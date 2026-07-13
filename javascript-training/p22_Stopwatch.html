@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program_22</title>
+    <script src="jquery-4.0.0.min.js"></script>
+    <style>
+        .cls{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="sw"></div>
+    <table>
+        <tr>
+            <th>Hours</th>
+            <th>Minutes</th>
+            <th>seconds</th>
+        </tr>
+        <tr>
+            <td id="hh"></td>
+            <td id="mm"></td>
+            <td id="ss"></td>
+        </tr>
+    </table>
+    <button id="st">Start</button>
+    <button id="sp">Stop</button>
+    <button id="ps">Pause</button>
+    
+</body>
+<script>
+    let hh = 0;
+    let mm = 0;
+    let ss = 0;
+    $(document).ready(function(){       
+        setInterval('updatesw()',1000);
+        $('#st').click(function(){
+            $('.cls').ajaxStart();
+        });
+        $('#sp').click(function(){
+            $('.cls').stop();
+        });
+        $('#ps').click(function(){
+            $('.cls').pause();
+        });
+        $('#s').click(function(){
+            $('.cls').hide(2000).show(2000).slideDown(5000);
+        })
+    });
+    function updatesw(){
+        ss++;
+        if(ss>=60){
+            mm++;
+            ss=0;
+        }
+        if(mm>=60){
+            hh++;
+            mm=0;
+            ss=0;
+        }
+        $('#sw').text(hh+" : "+mm+" : "+ss);
+    }
+</script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program_16</title>
+    <script src="jquery-4.0.0.min.js"></script>
+    <style>
+        .cls{
+            height: 200px;
+            width: 200px;
+            background-color: rgb(253, 0, 0);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="cls"></div><table><tr>
+    <button id="h">Hide</button>
+    <button id="s">Show</button>
+    <button id="t">Toggle</button></tr>
+    <button id="su">slideup</button>
+    <button id="sd">slidedown</button>
+    <button id="so">slideToggle</button>
+    <button id="fi">fadein</button>
+    <button id="fo">fadeout</button>
+    <button id="ft">fadetoggle</button></table>
+</body>
+<script>
+    $(document).ready(function(){
+        $('#h').click(function(){
+            $('.cls').hide();
+        });
+        $('#s').click(function(){
+            $('.cls').show();
+        });
+        $('#t').click(function(){
+            $('.cls').toggle();
+        });
+        $('#so').click(function(){
+            $('.cls').slideToggle();
+        });
+        $('#fi').click(function(){
+            $('.cls').fadeIn();
+        }) 
+        $('#fo').click(function(){
+            $('.cls').fadeOut();
+        })
+        $('#ft').click(function(){
+            $('.cls').fadeToggle();
+        })
+        $('#su').click(function(){
+        $('.cls').slideUp();
+        })
+        $('#sd').click(function(){
+            $('.cls').slideDown(2000);
+        })
+
+        
+    });
+
+</script>
+</html>

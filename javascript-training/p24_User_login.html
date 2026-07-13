@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program_24</title>
+    <script src="jquery-4.0.0.min.js"></script>
+    <script src="jquery.validate.min.js"></script>
+</head>
+<body>
+    <form id="frm" action="">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="myname"></td>
+            </tr>
+            <tr>
+                <td>E-mail</td>
+                <td><input type="text" name="mymail"></td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td><input type="text" name="myage"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="mypass" id="pass"></td>
+            </tr>
+            <tr>
+                <td>confirm Password</td>
+                <td><input type="text" name="cmypass"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="submit"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+<script>
+    $(document).ready(function(){
+        $.validator.addMethod('pwcheck',
+            function (value, element) {
+                return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)
+                // return /^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(value);
+            }
+        );
+        $("#frm").validate({
+            rules: {
+                myname:{
+                    required: true
+                },
+                mymail:{
+                    required: true,
+                    email: true,
+                },
+                myage:{
+                    required: true,
+                    min: 18,
+                    max: 60,
+                },
+                mypass:{
+                    required: true,
+                    pwcheck: true,
+                    minlength: 8
+                },
+                cmypass:{
+                    required: true,
+                    equalTo: '#pass'
+                }
+            },
+            messages:{
+                myname:{
+                    required:"This field is Imp",
+                },
+                mypass:{
+                    pwcheck: 'Enter valid value'
+                }
+            }
+        });
+    })
+</script>
+</html>

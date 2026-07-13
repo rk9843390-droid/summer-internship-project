@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Text Mirror</title>
+    <!-- Using standard stable CDN link for jQuery -->
+    <script src="JavaScript/jquery-4.0.0.min.js"></script>
+</head>
+<body>
+
+    <label for="txt">Enter name: </label>
+    <input type="text" id="txt" placeholder="Type something...">
+    <br><br>
+    
+    <!-- This will display the output dynamically -->
+    <strong>Output:</strong> <span id="v"></span>
+
+<script>
+    $(document).ready(function(){
+        // Listen for keyup directly on the input box
+        $('#txt').keyup(function(){
+            // 1. Get the current value from the text box
+            let inputData = $('#txt').val();
+            
+            // 2. Put that value inside the span element
+            $('#v').html(inputData);
+        });
+    });
+</script>
+</body>
+</html>

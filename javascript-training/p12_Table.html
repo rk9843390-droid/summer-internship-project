@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+<body>
+    
+    <script>
+        const arr = Array(2,3,4,5,6,7,8,9,10);
+        arr.forEach(function(item,index){
+            table(item);
+        });
+
+        function table(num){
+            document.write("<br> Table of "+num);
+            for (let index = 1; index <=10; index++){
+                res = num*index;
+                document.write("<br>"+num+"x"+index+"="+res);
+            }
+        }
+        
+        
+    
+    </script>
+
+</body>
+</html>

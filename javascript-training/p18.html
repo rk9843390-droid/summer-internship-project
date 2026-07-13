@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program_18</title>
+    <script src="jquery-4.0.0.min.js"></script>
+    <style>
+        .cls{
+            height: 300px;
+            width: 300px;
+            background-color: red;
+            position: relative;
+        }
+    </style>
+
+</head>
+<body>
+    <button id="h">Hide</button>
+</body>
+<script>
+    $(document).ready(function(){
+        $('#h').click(function(){
+            $('.cls').hide('slow',function(){
+                alert("Box is hide now!")
+            });
+        })
+        
+    })
+</script>
+</html>
